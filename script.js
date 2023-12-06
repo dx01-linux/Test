@@ -86,7 +86,7 @@ class Box {
     }
 
     setBox(){
-        //append all atributes.tag to wrapper by itinerating trought them
+        //append all atributes.tag to wrapper by itinerating trought all class attributes
     }
 
 }
