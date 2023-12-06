@@ -111,10 +111,15 @@ const boxManager = {
         this.containerTag.addEventListener()
     },
     'addBox' : function(number = 1){
-        this.boxContainer.push(new Box());
+        for(let i = number ; i <= this.boxContainer.length - 1 , i ++ ){
+            this.boxContainer.push(new Box());
+        }
     },
     'delBox' : function(number = 1){
-        this.boxContainer.pop();
+        for(let i = number ; i <= this.boxContainer.length - 1 , i ++ ){
+            this.boxContainer.pop();
+        }
     }
 };
 
+boxManager.addBox()
