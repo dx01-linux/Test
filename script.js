@@ -104,4 +104,17 @@ class Box {
 
 }
 
-const box = new Box();
+const boxManager = {
+    'containerTag' : document.querySelector('#container') ,
+    'boxContainer' : [] ,
+    'eventListener' : function(){
+        this.containerTag.addEventListener()
+    },
+    'addBox' : function(number = 1){
+        this.boxContainer.push(new Box());
+    },
+    'delBox' : function(number = 1){
+        this.boxContainer.pop();
+    }
+};
+
