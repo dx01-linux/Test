@@ -117,15 +117,10 @@ const boxManager = {
         }
     },
     'delBox' : function(number = 1){
-        for(let i = number ; i <= this.boxContainer.length - 1 ; i ++ ){
+        for(let i = 0 ; i <= number -1 ; i ++ ){
             this.boxContainer.pop();
             this.containerTag.lastElementChild.remove()
         }
     }
 };
 
-
-const header = document.querySelector('#wrapper').firstElementChild ;
-header.addEventListener('click' , e=>{
-    boxManager.addBox();
-});
