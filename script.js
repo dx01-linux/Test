@@ -80,7 +80,7 @@ class Box {
     constructor(){
         //atributes
         this.header = new Text('header');
-        this.image = new Image();
+        //this.image = new Image();
         this.description = new Text('Product - Description');
         this.wrapper = new Wrapper('box')
         
@@ -111,15 +111,18 @@ const boxManager = {
         this.containerTag.addEventListener()
     },
     'addBox' : function(number = 1){
-        for(let i = number ; i <= this.boxContainer.length - 1 , i ++ ){
+        for(let i = number ; i <= this.boxContainer.length - 1 ; i ++ ){
             this.boxContainer.push(new Box());
+            this.containerTag.appendChild(this.boxContainer[i]);
         }
     },
     'delBox' : function(number = 1){
-        for(let i = number ; i <= this.boxContainer.length - 1 , i ++ ){
+        for(let i = number ; i <= this.boxContainer.length - 1 ; i ++ ){
             this.boxContainer.pop();
+            this.containerTag.lastElementChild.remove()
         }
     }
 };
 
-boxManager.addBox()
+boxManager.addBox(10);
+boxManager.delBox(5);
