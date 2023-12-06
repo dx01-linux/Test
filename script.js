@@ -75,31 +75,33 @@ class Wrapper extends Element{
 }
 
 class Box {
+    
+
     constructor(){
         //atributes
         this.header = new Text('header');
         this.image = new Image();
         this.description = new Text('Product - Description');
         this.wrapper = new Wrapper('box')
-         
-        //let reference = this ;
-        //setBox(reference);
+        
+        //Setting Up :::
+            //get new object reference
+            let reference = this ;
+            //pass it to call back function
+            (function setBox(reference){
+                //get  objects's Attributes's key 
+                let keys = [];
+                keys = Object.keys(box)
+                //append all atributes's tag to wrapper by itinerating trought them
+                for(let key of keys){
+                    //wrapper can't append itself
+                    if(key != 'wrapper'){
+                        box.wrapper.appendAChild(box[key].getTag());
+                    }
+                }
+            })(reference);
     }
 
-    setBox(box){
-        let keys = [];
-        let pos = 0 ;
-        for(let x of box){
-            keys[pos] = Object.keys(box);
-            pos++ ;
-        }
-        //append all atributes.tag to wrapper by itinerating trought them
-        for(let key of keys){
-            if(key != 'wrapper'){
-                this.wrapper.appendAChild(box[key].getTag());
-            }
-        }
-    }
 }
 
 const box = new Box();
