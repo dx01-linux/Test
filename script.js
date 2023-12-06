@@ -81,6 +81,8 @@ class Box {
         this.image = new Image();
         this.description = new Text('Product - Description');
         this.wrapper = new Wrapper('box')
+
+        //setBox(this);
     }
 
     setBox(box){
