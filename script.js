@@ -20,7 +20,7 @@ class Element {
 
 }
 
-class Text {
+class Text extends Element {
     constructor(text , type = 'p'){
         //inheried class const
         super(type);
@@ -33,3 +33,62 @@ class Text {
         this.textNode.appendChild(document.createTextNode(text));
     }
 }
+
+class Image extends Element {
+    constructor(src = '#' , width = 20 , height = 20){
+        super('img');
+
+        //attributes:
+        this.src = src;
+        this.dimensions = [width = width , height = height];
+
+        //setting up:
+        this.setSrc();
+        this.setDimensions();
+    }
+
+    setSrc(newSrc = this.src){
+        this.tag.src = newSrc ;
+        this.tag.setAttribute('alt' , 'image');
+    }
+    setDimensions(w = this.dimensions[0] , h = this.dimensions[1]){
+        this.dimensions = [];
+        this.dimensions.push(w);
+        this.dimensions.push(h);
+
+        this.tag.width = this.dimensions[0] ;
+        this.tag.height = this.dimensions[1];
+    }
+}
+
+class Wrapper extends Element{
+    constructor(className){
+        super('div' , className);
+
+        //setting up
+        this.setClass(className);
+    }
+
+    appendAChild(tag){
+        this.getTag().appendChild(tag);
+    }
+}
+
+class Box {
+    constructor(){
+        //atributes
+        this.header = new Text('header');
+        this.image = new Image();
+        this.description = new Text('Product - Description');
+        this.wrapper = new Wrapper('box')
+        //setting up
+        this.setBox();
+    }
+
+    setBox(){
+        //append all atributes.tag to wrapper by itinerating trought them
+    }
+
+}
+
+const box = new Box();
