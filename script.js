@@ -111,7 +111,7 @@ const boxManager = {
         this.containerTag.addEventListener()
     },
     'addBox' : function(number = 1){
-        for(let i = number ; i <= this.boxContainer.length - 1 ; i ++ ){
+        for(let i = 0 ; i <= number - 1 ; i ++ ){
             this.boxContainer.push(new Box());
             this.containerTag.appendChild(this.boxContainer[i]);
         }
@@ -124,5 +124,8 @@ const boxManager = {
     }
 };
 
-boxManager.addBox(10);
-boxManager.delBox(5);
+
+const header = document.querySelector('#wrapper').firstElementChild ;
+header.addEventListener('click' , e=>{
+    boxManager.addBox();
+});
