@@ -81,14 +81,22 @@ class Box {
         this.image = new Image();
         this.description = new Text('Product - Description');
         this.wrapper = new Wrapper('box')
-        //setting up
-        this.setBox();
     }
 
-    setBox(){
-        //append all atributes.tag to wrapper by itinerating trought all class attributes
+    setBox(box){
+        let keys = [];
+        let pos = 0 ;
+        for(let x of box){
+            keys[pos] = Object.keys(box);
+            pos++ ;
+        }
+        //append all atributes.tag to wrapper by itinerating trought them
+        for(let key of keys){
+            if(key != 'wrapper'){
+                this.wrapper.appendAChild(box[key].getTag());
+            }
+        }
     }
-
 }
 
 const box = new Box();
