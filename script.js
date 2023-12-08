@@ -80,7 +80,7 @@ class Box {
     constructor(){
         //atributes
         this.header = new Text('header');
-        //this.image = new Image();
+        this.image = new Image();
         this.description = new Text('Product - Description');
         this.wrapper = new Wrapper('box')
         
