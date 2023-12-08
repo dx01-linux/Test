@@ -1,8 +1,49 @@
+class tagEvent{
+    constructor(name , tag , type , instruction){
+        this.name = name ;
+        this.targetTag = tag ;
+        this.type = type ;
+        this.instruction = instruction ;
+    }
+    setEvent(){
+        this.targetTag.addEventListener(
+            this.type , (function(){ this.instruction })()
+        );
+    }
+
+}
+class EventHandler{
+    constructor(){
+        this.tagEventArray = [];
+
+        //setting up:
+    }
+    delEvent(name){
+        let pos = 0 ;
+        for(let x of this.tagEventArray){
+            if(x.name == name){
+                // delete x's elemetn in array 
+            }
+            pos++ ; 
+        }
+    }
+    createEvent(name , tag , type , instruction){
+        const newEvent = new tagEvent(name , tag , type , instruction);
+        this.tagEventArray.push(newEvent);
+    }
+    listen(){
+        for(let e of this.tagEventArray){
+            e.setEvent();
+        }
+    }
+}
 class Element {
     constructor(type , className = undefined , idName = undefined){
         this.tag = document.createElement(type);
         this.class = className ;
         this.id = idName;
+        //Event listeners
+        this.eventHandler = new EventHandler();
     }
     getTag(){
         return this.tag;
@@ -75,14 +116,14 @@ class Wrapper extends Element{
 }
 
 class Box {
-    
-
-    constructor(){
+    constructor(
+        header = 'header' , text = 'some text' , src = '#' ,className ='box'
+        ){
         //atributes
-        this.header = new Text('header');
-        this.image = new Image();
-        this.description = new Text('Product - Description');
-        this.wrapper = new Wrapper('box')
+        this.header = new Text(header);
+        this.image = new Image(src);
+        this.description = new Text(text);
+        this.wrapper = new Wrapper(className)
         
         //Setting Up :::
             //get new object reference
@@ -110,9 +151,11 @@ const boxManager = {
     'eventListener' : function(){
         this.containerTag.addEventListener()
     },
+    
     'addBox' : function(number = 1){
         for(let i = 0 ; i <= number - 1 ; i ++ ){
-            this.boxContainer.push(new Box());
+            let newBox = new Box() ; 
+            this.boxContainer.push(newBox);
             this.containerTag.appendChild(this.boxContainer[i]);
         }
     },
