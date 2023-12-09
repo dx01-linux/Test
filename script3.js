@@ -27,6 +27,7 @@ class Event{
             )
     }
 }
+
 class Element {
     constructor(type){
         //tag
@@ -54,7 +55,37 @@ class Wrapper extends Element {
     constructor(className){
         super('div');
         //setting atributes
-        super.tagAttributes.setNewAtribute('class' , className);
-        //setting event listeners
+        super.tagAttributes.setNewAtribute('class' , className);        
     }
+}
+class Text extends Element {
+    constructor(type , text){
+        super(type);      
+        //setting atributes
+        this.setText(text);
+    }
+
+    setText(text){
+        super.tag.innerHTML = '';
+        super.tag.appendChild(document.createTextNode(text));
+    }
+}
+class Image{
+    constructor(src = '#'){
+        super('img');
+
+        //setting atributes
+        super.tagAttributes.setNewAtribute('src' , src);
+    }
+    
+}
+
+class Box {
+    constructor(){
+        this.header = new Text('h6' , 'Header');
+        this.image = new Image();
+        this.description = new Text('p' , 'description')
+        this.wrapper = new Wrapper('box')
+    }
+
 }
