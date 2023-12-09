@@ -55,7 +55,7 @@ class Wrapper extends Element {
     constructor(className){
         super('div');
         //setting atributes
-        super.tagAttributes.setNewAtribute('class' , className);        
+        this.setNewAtribute('class' , className);        
     }
 }
 class Text extends Element {
@@ -67,7 +67,7 @@ class Text extends Element {
 
     setText(text){
         super.tag.innerHTML = '';
-        super.tag.appendChild(document.createTextNode(text));
+        this.tag.appendChild(document.createTextNode(text));
     }
 }
 class Image{
@@ -75,7 +75,7 @@ class Image{
         super('img');
 
         //setting atributes
-        super.tagAttributes.setNewAtribute('src' , src);
+        this.tagAttributes.setNewAtribute('src' , src);
     }
     
 }
