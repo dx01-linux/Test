@@ -15,7 +15,7 @@ class htmlElement {
         this.attr.removeNamedItem(name)
     }
     appendElement(tag){
-        this.tag.appendElement(tag);
+        this.tag.appendChild(tag);
     }
 }
 
@@ -30,10 +30,11 @@ class Wrapper extends htmlElement{
 
 class Img extends htmlElement{
     constructor(src = '#' ){
-        super('div');
+        super('img');
 
         //setting properties
         this.setAttr('src' , src);
+        this.setAttr('alt' , 'image');
     }
 }
 
@@ -52,6 +53,28 @@ class Box{
         this.img = new Img();
         this.header = new Text('header');
         this.description = new Text('bla-bla-bla');
+
+        //setting up :
+        this.wrapper.appendElement(this.header.getTag())
+		this.wrapper.appendElement(this.img.getTag())
+		this.wrapper.appendElement(this.description.getTag())
+    }
+}
+
+const container = {
+    'tag' : document.querySelector('#container') ,
+    'boxes' : [] ,
+    'addBoxes' : function(number){
+        
+        for(let i = 0 ; i < number - 1 ; i++){
+            let aBox = new Box();
+            this.boxes.push(aBox);
+        }
+    } ,
+    'delBoxes' : function(number){
+        for(let i = 0 ; x < number - 1 ; i++){
+            this.boxes.pop();
+        }
     }
 }
 
