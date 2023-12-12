@@ -4,19 +4,6 @@ class htmlElement {
         this.attr = this.tag.attributes ;   
         this.events = [] ;
     }
-    getTag(){
-        return this.tag ;
-    }
-    
-    setAttr(type , value){
-        this.tag.setAttribute(type , value)
-    }
-    delAttr(name) {
-        this.attr.removeNamedItem(name)
-    }
-    appendElement(tag){
-        this.tag.appendChild(tag);
-    }
 }
 
 class Wrapper extends htmlElement{
@@ -24,7 +11,7 @@ class Wrapper extends htmlElement{
         super('div');
 
         //setting properties
-        this.setAttr('class' , className);
+        this.tag.setAttributes('class' , className)
     }
 }
 
@@ -33,8 +20,8 @@ class Img extends htmlElement{
         super('img');
 
         //setting properties
-        this.setAttr('src' , src);
-        this.setAttr('alt' , 'image');
+        this.tag.setAttributes('src' , src)
+        this.tag.setAttributes('alt' , image)
     }
 }
 
@@ -43,7 +30,7 @@ class Text extends htmlElement {
         super('p');
 
         //attributes
-        this.appendElement(document.createTextNode(text));
+        this.tag.appendChild(document.createTextNode(text));
     }
 }
 
@@ -55,9 +42,12 @@ class Box{
         this.description = new Text('bla-bla-bla');
 
         //setting up :
-        this.wrapper.appendElement(this.header.getTag())
-		this.wrapper.appendElement(this.img.getTag())
-		this.wrapper.appendElement(this.description.getTag())
+        let keys = Object.keys(this);
+        for(let i = 0 ; i <= keys.length - 1 ; i++){
+            if(keys[i] != "wrapper"){
+                this.wrapper.appendChild(this[keys[i]].tag)
+            }
+        }
     }
 }
 
@@ -65,16 +55,10 @@ const container = {
     'tag' : document.querySelector('#container') ,
     'boxes' : [] ,
     'addBoxes' : function(number){
-        
         for(let i = 0 ; i < number - 1 ; i++){
-            let aBox = new Box();
-            this.boxes.push(aBox);
+            this.boxes.push(new Box()); // keep track of max boxes
+            this.tag.appendChild(this.boxes[i].wrapper.tag); // attach added box to container 
         }
     } ,
-    'delBoxes' : function(number){
-        for(let i = 0 ; x < number - 1 ; i++){
-            this.boxes.pop();
-        }
-    }
 }
 
