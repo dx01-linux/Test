@@ -11,7 +11,7 @@ class Wrapper extends htmlElement{
         super('div');
 
         //setting properties
-        this.tag.setAttributes('class' , className)
+        this.tag.setAttribute('class' , className)
     }
 }
 
@@ -20,8 +20,8 @@ class Img extends htmlElement{
         super('img');
 
         //setting properties
-        this.tag.setAttributes('src' , src)
-        this.tag.setAttributes('alt' , image)
+        this.tag.setAttribute('src' , src)
+        this.tag.setAttribute('alt' , 'image')
     }
 }
 
@@ -44,7 +44,7 @@ class Box{
         //setting up :
         for(let x of Object.keys(this)){
                 if(x != 'wrapper'){
-                    this.wrapper.tag.appendChild(x.tag);
+                    this.wrapper.tag.appendChild(this[x].tag);
                 }
         }
     }
@@ -54,10 +54,11 @@ const container = {
     'tag' : document.querySelector('#container') ,
     'boxes' : [] ,
     'addBoxes' : function(number){
-        for(let i = 0 ; i < number - 1 ; i++){
+        for(let i = 0 ; i <= number - 1 ; i++){
             this.boxes.push(new Box()); // keep track of max boxes
             this.tag.appendChild(this.boxes[i].wrapper.tag); // attach added box to container 
         }
     } ,
 }
 
+container.addBoxes(10);
