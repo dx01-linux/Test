@@ -42,11 +42,10 @@ class Box{
         this.description = new Text('bla-bla-bla');
 
         //setting up :
-        let keys = Object.keys(this);
-        for(let i = 0 ; i <= keys.length - 1 ; i++){
-            if(keys[i] != "wrapper"){
-                this.wrapper.appendChild(this[keys[i]].tag)
-            }
+        for(let x of Object.keys(this)){
+                if(x != 'wrapper'){
+                    this.wrapper.tag.appendChild(x.tag);
+                }
         }
     }
 }
