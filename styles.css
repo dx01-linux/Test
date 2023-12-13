@@ -4,11 +4,25 @@
     font-family: monospace;
     font-size: medium;
 }
-
 #wrapper * {
     margin : 0% ;
     padding: 0% ;
 }
+
+#navB{
+   height: 50px; 
+}
+#navB ul{
+    height: 90%;
+    list-style: none;
+    display: flex;
+    gap: 2% 2%
+}
+#navB ul *{
+    color : red ;
+    flex : 1 1 1 ;
+}
+
 #container {
     height: 500px;
     display: flex;
