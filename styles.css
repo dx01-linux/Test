@@ -1,35 +1,35 @@
-*{
+*   {
     margin : 0% ;
     padding: 0% ;
     font-family: monospace;
     font-size: medium;
 }
-#wrapper * {
+#wrapper *  {
     margin : 0% ;
     padding: 0% ;
 }
 
-#navB{
+#navB   {
    height: 50px; 
 }
-#navB ul{
+#navB ul  {
     height: 90%;
     list-style: none;
     display: flex;
     gap: 2% 2%
 }
-#navB ul *{
+#navB ul *  {
     color : red ;
     flex : 1 1 1 ;
 }
 
-#container {
+#container  {
     height: 500px;
     display: flex;
     flex-flow: row wrap;
     gap : 1% 1%;
 }
-.box{
+#container .box    {
     flex : 1 1 1 ;
     border : 2px solid red ;
 }
