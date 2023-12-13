@@ -1,18 +1,9 @@
-function eve(target , type , instruction){
-    return target.addEventListener(type , instruction)
-}
-
 class htmlElement {
     constructor(tag){
         this.tag = document.createElement(tag)
         this.attr = this.tag.attributes ;  
-        this.events = {};
+        this.events = [] 
     }
-    // Events on tag ::::: storaged on object and divided by keys
-
-    // setEve(name , type , instruction , target = this.tag){
-    //     this.events[name] = eve(target , type , instruction)
-    // }
 }
 
 class Wrapper extends htmlElement{
