@@ -1,0 +1,14 @@
+body {
+    margin: 0%;
+    padding: 0%;
+    background-color: rgb(78, 70, 70);
+    color :rgb(196, 213, 228) ;
+}
+
+.navBar {
+    display : inline flex ;
+}
+#main-var li:first-child {
+    flex : 1 6 auto ;
+    color : rgb(201, 84, 84) ;
+}
