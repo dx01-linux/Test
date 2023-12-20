@@ -1,14 +1,20 @@
 body {
     margin: 0%;
     padding: 0%;
-    background-color: rgb(78, 70, 70);
+    background-color: rgb(79, 77, 77);
     color :rgb(196, 213, 228) ;
 }
 
-.navBar {
-    display : inline flex ;
+#picture-side{
+    display: inline flex;
+    flex-flow: row nowrap;
+    width: 49%;
 }
-#main-var li:first-child {
-    flex : 1 6 auto ;
-    color : rgb(201, 84, 84) ;
+#mini-boxes {
+    display : block flex ;
+    width : 30% ;
+}
+#mini-boxes > img {
+    width: 20px;
+    height: 20px;
 }
